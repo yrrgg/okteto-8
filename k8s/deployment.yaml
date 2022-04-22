@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ray
+  name: yook
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ray
+      app: yook
   template:
     metadata:
       labels:
-        app: ray
+        app: yook
     spec:
       containers:
-      - image: okteto.dev/ray:latest
-        name: ray
+      - image: okteto.dev/yook:latest
+        name: yook
         ports:
         - containerPort: 8080
         env:
         - name: PORT
           value: "8080"
         - name: ProxySite
-          value: "$ProxySite"
+          value: "mirror.umd.edu"
         - name: Vless_UUID
-          value: "$Vless_UUID"
+          value: "9259fb7a-9a8d-4bc6-8c7a-0e0ba4719b1a"
         - name: Vless_Path
-          value: "$Vless_Path"
+          value: "/app"
         - name: Vmess_UUID
-          value: "$Vmess_UUID"
+          value: "9259fb7a-9a8d-4bc6-8c7a-0e0ba4719b1a"
         - name: Vmess_Path
-          value: "$Vmess_Path"
+          value: "/add"
         - name: Share_Path
           value: "$Share_Path"
